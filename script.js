@@ -12,11 +12,6 @@ let game = {
         this.canvas = document.querySelector("#canvas");
         this.ctx = canvas.getContext("2d");
     },
-    // run() {
-    //     window.requestAnimationFrame(() => {
-    //         this.render();
-    //     });
-    // },
 
     render() {
         this.squat.drawRect();
@@ -25,10 +20,12 @@ let game = {
         this.walls.createWalls();
         this.renderGrid();
     },
+
     start() {
         this.init();
         this.render();
     },
+
     renderGrid() {
         this.ctx.beginPath()
         const w = this.canvas.width
@@ -37,8 +34,8 @@ let game = {
         const squareHeight = h / this.gridSettings.squareHeight
         this.ctx.strokeStyle = '#bdbdbd'
         this.ctx.lineWidth = 0.1
-        for (var x = squareWidth; x < w; x += squareWidth) this.ctx.strokeRect(x, 0, 0.1, h)
-        for (var y = squareHeight; y < h; y += squareHeight) this.ctx.strokeRect(0, y, w, 0.1)
+        for (let x = squareWidth; x < w; x += squareWidth) this.ctx.strokeRect(x, 0, 0.1, h)
+        for (let y = squareHeight; y < h; y += squareHeight) this.ctx.strokeRect(0, y, w, 0.1)
         this.ctx.fill()
         this.ctx.closePath()
     }
@@ -57,7 +54,7 @@ game.squat = {
     },
     drawRect(x = this.x, y = this.y) {
         game.ctx.fillStyle = "black";
-        // game.ctx.clearRect(0, 0, 600, 500);
+        game.ctx.clearRect(0, 0, 500, 600);
         game.ctx.fillRect(x, y, this.width, this.height);
     },
     mouseEvent() {
@@ -65,13 +62,13 @@ game.squat = {
             this.start = { x: e.offsetX, y: e.offsetY };
             game.canvas.onmousemove = (e) => {
                 this.drawRect(
-                    this.edge(this.x + e.offsetX - this.start.x, 0, 600 - this.width),
-                    this.edge(this.y + e.offsetY - this.start.y, 0, 500 - this.height)
+                    this.edge(this.x + e.offsetX - this.start.x, 0, 500 - this.width),
+                    this.edge(this.y + e.offsetY - this.start.y, 0, 600 - this.height)
                 );
             }
             game.canvas.onmouseup = (e) => {
-                this.x = this.edge(this.x + e.offsetX - this.start.x, 0, 600 - this.width);
-                this.y = this.edge(this.y + e.offsetY - this.start.y, 0, 500 - this.height);
+                this.x = this.edge(this.x + e.offsetX - this.start.x, 0, 500 - this.width);
+                this.y = this.edge(this.y + e.offsetY - this.start.y, 0, 600 - this.height);
                 game.canvas.onmousemove = null
             }
         }
