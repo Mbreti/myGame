@@ -54,15 +54,21 @@ let game = {
 game.squat = {
     height: 25,
     width: 25,
-    x: 0,
-    y: 0,
+    rectPos: {
+        x: 0,
+        y: 0,
+    },
+    currPos: {
+        x: 0,
+        y: 0,
+    },
     start: null,
 
     edge(c, min, max) {
         return Math.max(min, Math.min(max, c));
     },
 
-    drawRect(x = this.x, y = this.y) {
+    drawRect(x = this.rectPos.x, y = this.rectPos.y) {
         game.ctx.fillStyle = "black";
         game.ctx.clearRect(0, 0, 500, 600);
         game.renderGrid()
@@ -73,25 +79,16 @@ game.squat = {
         game.canvas.onmousedown = (e) => {
             this.start = { x: e.offsetX, y: e.offsetY };
             game.canvas.onmousemove = (e) => {
-                this.drawRect(
-                    this.edge(this.x + e.offsetX - this.start.x, 0, 500 - this.width),
-                    this.edge(this.y + e.offsetY - this.start.y, 0, 600 - this.height)
-                );
+                this.currPos.x = game.squareWidth * Math.round((this.rectPos.x + e.offsetX - this.start.x) / game.squareWidth);
+                this.currPos.y = game.squareHeight * Math.round((this.rectPos.y + e.offsetY - this.start.y) / game.squareHeight);
+                this.currPos.x = this.edge(this.currPos.x, 0, 500 - 34);
+                this.currPos.y = this.edge(this.currPos.y, 0, 600 - 40);
+
+                this.drawRect(this.currPos.x, this.currPos.y);
             }
             game.canvas.onmouseup = (e) => {
-                if (game.gridCheckbox.checked) {
-                    const new_x = game.squareWidth * Math.round((this.x + e.offsetX - this.start.x) / game.squareWidth);
-                    const new_y = game.squareHeight * Math.round((this.y + e.offsetY - this.start.y) / game.squareHeight);
-                    this.x = this.edge(new_x, 0, 500 - this.width);
-                    this.y = this.edge(new_y, 0, 600 - this.height);
-                    this.drawRect(
-                        this.edge(this.x, 0, 500 - this.width),
-                        this.edge(this.y, 0, 600 - this.height)
-                    );
-                } else {
-                    this.x = this.edge(this.x + e.offsetX - this.start.x, 0, 500 - this.width);
-                    this.y = this.edge(this.y + e.offsetY - this.start.y, 0, 600 - this.height);
-                }
+                this.rectPos.x = this.currPos.x;
+                this.rectPos.y = this.currPos.y;
                 game.canvas.onmousemove = null
             }
         }
