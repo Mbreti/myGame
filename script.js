@@ -603,10 +603,6 @@ document.addEventListener('mouseup', dropDraggableElement)
 // };
 
 
-// window.addEventListener("DOMContentLoaded", () => {
-//     start();
-// })
-
 
 // let game = {
 // gridSettings: {
@@ -704,7 +700,3 @@ document.addEventListener('mouseup', dropDraggableElement)
 //         }
 //     },
 // };
-
-// window.addEventListener("DOMContentLoaded", () => {
-//     game.start();
-// })
