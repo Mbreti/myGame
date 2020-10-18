@@ -377,6 +377,7 @@ function edge(c, min, max) {
     return Math.max(min, Math.min(max, c));
 }
 
+
 const rectPos = { x: 0, y: 0 };
 const currPos = { x: 0, y: 0 };
 
