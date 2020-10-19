@@ -38,8 +38,11 @@ const squareHeight = h / gridSettings.squareHeight
 localStorage.setItem('level-1', `{"id":1,"name":"start","groups":[{"id":1,"name":"1","x":10,"y":31,"w":811,"h":6989,"elements":[{"x":82,"y":70,"w":"1","h":"20","id":1,"hide":0,"active":0,"bern":[0,0,1,0],"thru":[0,0,0,0]},{"x":10,"y":31,"w":31,"h":1,"id":2,"hide":0,"active":0,"bern":[0,1,0,1],"thru":[0,0,0,0]}]},{"id":2,"elements":[{"x":79,"y":113,"w":11,"h":7,"id":5,"hide":0,"params":{"x":1,"y":0,"coup":0},"active":0,"color":"rgba(100,220,220, 0.3)"},{"x":90,"y":113,"w":10,"h":7,"id":6,"hide":0,"params":{"x":0,"y":0,"coup":1},"active":0,"color":"rgba(220,70,220, 0.3)"}],"x":79,"y":113,"w":21,"h":7,"name":"2"},{"id":3,"elements":[{"x":36,"y":67,"w":12,"h":1,"id":18,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":48,"y":67,"w":1,"h":15,"id":13,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":49,"y":81,"w":12,"h":1,"id":21,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":60,"y":82,"w":1,"h":14,"id":16,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":61,"y":95,"w":12,"h":1,"id":14,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]}],"x":36,"y":67,"w":37,"h":29,"name":"3"}],"areas":[{"x":25,"y":32,"w":15,"h":15,"id":1,"color":"rgba(100,70,220, 0.3)","params":{"coup":1,"x":1,"y":0},"active":0},{"x":30,"y":47,"w":5,"h":21,"id":3,"hide":0,"params":{"x":0,"y":1,"coup":0},"active":0,"color":"rgba(220,220,100, 0.3)"},{"x":9,"y":68,"w":21,"h":11,"id":4,"hide":0,"params":{"x":0,"y":0,"coup":1},"active":0,"color":"rgba(220,70,220, 0.3)"},{"x":79,"y":113,"w":11,"h":7,"id":5,"hide":0,"params":{"x":1,"y":0,"coup":0},"active":0,"color":"rgba(100,220,220, 0.3)"},{"x":90,"y":113,"w":10,"h":7,"id":6,"hide":0,"params":{"x":0,"y":0,"coup":1},"active":0,"color":"rgba(220,70,220, 0.3)"},{"x":91,"y":74,"w":9,"h":29,"id":7,"hide":0,"params":{"x":0,"y":1,"coup":0},"active":0,"color":"rgba(220,220,100, 0.3)"},{"x":91,"y":33,"w":9,"h":20,"id":8,"hide":0,"params":{"x":0,"y":0,"coup":1},"active":0,"color":"rgba(220,70,220, 0.3)"},{"x":91,"y":53,"w":9,"h":21,"id":9,"hide":0,"params":{"x":0,"y":1,"coup":1},"active":0,"color":"rgba(220,70,100, 0.3)"},{"x":2,"y":19,"w":5,"h":5,"id":10,"color":"rgba(100,70,220, 0.3)","params":{"coup":1,"x":1,"y":0},"hide":0,"active":0,"draggable":null}],"walls":[{"x":82,"y":70,"w":"1","h":"20","id":1,"hide":0,"active":0,"bern":[0,0,1,0],"thru":[0,0,0,0]},{"x":10,"y":31,"w":31,"h":1,"id":2,"hide":0,"active":0,"bern":[0,1,0,1],"thru":[0,0,0,0]},{"x":61,"y":103,"w":1,"h":10,"id":3,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[1,1,1,0]},{"x":9,"y":8,"w":1,"h":24,"id":4,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":35,"y":47,"w":1,"h":21,"id":5,"hide":0,"active":0,"bern":[0,1,1,0],"thru":[0,1,1,0]},{"x":9,"y":39,"w":1,"h":28,"id":6,"hide":0,"active":0,"bern":[1,0,0,1],"thru":[0,1,1,0]},{"x":10,"y":39,"w":15,"h":1,"id":7,"hide":0,"active":1,"bern":[0,0,1,1],"thru":[1,0,1,0]},{"x":40,"y":32,"w":1,"h":15,"id":8,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":9,"y":67,"w":20,"h":1,"id":9,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":24,"y":40,"w":1,"h":7,"id":10,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":95,"y":112,"w":5,"h":1,"id":11,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":36,"y":47,"w":5,"h":1,"id":12,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":48,"y":67,"w":1,"h":15,"id":13,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":61,"y":95,"w":12,"h":1,"id":14,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":41,"y":90,"w":1,"h":14,"id":15,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":60,"y":82,"w":1,"h":14,"id":16,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":9,"y":112,"w":77,"h":1,"id":17,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":36,"y":67,"w":12,"h":1,"id":18,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":0,"y":104,"w":52,"h":1,"id":19,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":85,"y":103,"w":1,"h":9,"id":20,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":49,"y":81,"w":12,"h":1,"id":21,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":29,"y":80,"w":1,"h":10,"id":22,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":29,"y":90,"w":12,"h":1,"id":23,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":0,"y":79,"w":30,"h":1,"id":24,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":29,"y":47,"w":1,"h":21,"id":25,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":74,"y":90,"w":9,"h":1,"id":26,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0],"draggable":null},{"x":24,"y":47,"w":5,"h":1,"id":27,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":90,"y":33,"w":1,"h":70,"id":28,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0],"draggable":null},{"x":73,"y":90,"w":1,"h":15,"id":29,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]},{"x":85,"y":102,"w":5,"h":1,"id":30,"hide":0,"active":0,"bern":[0,0,0,0],"thru":[0,0,0,0]}],"winds":[{"x":91,"y":33,"w":9,"h":70,"id":1,"color":"rgba(0,255,255,0.3)","params":{"X":1,"Y":1,"forse":1},"active":0,"draggable":null,"X":0,"Y":-1,"forse":2},{"x":74,"y":91,"w":16,"h":11,"id":2,"params":{"X":0,"Y":0,"forse":0},"color":"rgba(0,255,255,0.3)","active":0,"draggable":null}]}`)
 const selectedLevel = JSON.parse(localStorage.getItem('level-1'))
 
+/*HELP FUNCTIONS */
 const getElementById = id => selectedElements.find(el => el.id === id)
+const getAreaById = id => areas.find(el => el.id === id)
 const getWallById = id => walls.find(el => el.id === id)
+const getWindById = id => winds.find(el => el.id === id)
 const getXPixelRatio = canvas.width / gridSettings.squareWidth
 const getYPixelRatio = canvas.height / gridSettings.squareHeight
 const xCoordsToPixels = coords => coords * getXPixelRatio
@@ -62,7 +65,9 @@ const generateLevelId = () => {
     }
     return level
 }
+const getAllLevels = () => Object.keys(localStorage).map(lvl => JSON.parse(localStorage.getItem(lvl)))
 /*END OF HELP FUNCTIONS */
+
 
 const deleteElementOnGroups = elementId => {
     const element = getElementById(elementId)
@@ -127,6 +132,13 @@ const deleteElement = elementId => {
 }
 
 
+const toggleAreaParams = (areaId, el) => {
+    el.classList.toggle('active')
+    const area = getAreaById(areaId)
+    area.params[el.id] = !area.params[el.id]
+    renderAll()
+}
+
 const setSelectedTab = e => {
     if (e.id === 'settings') {
         selectedElements = null
@@ -158,6 +170,16 @@ const setSelectedTab = e => {
 const updateWallPanel = element => {
     if (!selectedElements) return
     const panelElement = document.querySelector(`#wall-${element.id}`)
+    for (let prop in element) {
+        if (panelElement.querySelector(`input[name=${prop}]`)) {
+            panelElement.querySelector(`input[name=${prop}]`).value = element[prop]
+        }
+    }
+}
+
+const updateAreaPanel = element => {
+    if (!selectedElements) return
+    const panelElement = document.querySelector(`#area-${element.id}`)
     for (let prop in element) {
         if (panelElement.querySelector(`input[name=${prop}]`)) {
             panelElement.querySelector(`input[name=${prop}]`).value = element[prop]
@@ -253,6 +275,68 @@ const addWallToPanel = wall => {
         </button>
     </div>`
     )
+}
+
+const addAreaToPanel = area => {
+    if (document.querySelector(`#area-${area.id}`)) return
+    panelAreas.insertAdjacentHTML('beforeend',
+        `<div 
+        class="game-panel-areas__item game-panel-item"
+        id="area-${area.id}"
+        onmousedown="setSelectedElement(this)"
+    >
+        <div class="game-panel-item__coords">
+            <span>x:</span>
+            <input name="x" oninput="elementChange(this)" value="${area.x}">
+            <span>y:</span>
+            <input name="y" oninput="elementChange(this)" value="${area.y}">
+        </div>
+        <div class="game-panel-item__size">
+            <span>width:</span>
+            <input oninput="elementChange(this)" name="w" value="${area.w}">
+            <span>height:</span>
+            <input oninput="elementChange(this)" name="h" value="${area.h}">
+        </div>
+        <div class="game-panel-item__params">
+            <button id="x" class="${area.params.x ? 'active' : ''}" onClick="toggleAreaParams(${area.id}, this)">
+                X
+            </button>
+            <button id="y" class="${area.params.y ? 'active' : ''}" onClick="toggleAreaParams(${area.id}, this)">
+                Y
+            </button>
+            <button class="${area.params.y ? 'active' : ''}"
+                onClick="coupArea(this, ${area.id})
+             ">
+                Coup
+            </button>
+            <span>Group:</span>
+            <select name="group-select" onChange="toggleElementOnGroup(this, ${area.id})">
+            <option></option>
+                ${groups.map(g =>
+            `<option ${g.elements.includes(area) ? 'selected' : ''}>${g.id}</option>`)
+        }
+            </select>
+        </div>
+        <button class="game-panel-item__copy" onClick="copyElement(${area.id})">Copy</button>
+        <button class="game-panel-item__hide" onClick="hideElement(this, ${area.id})">
+            Toggle hide
+        </button>
+        <button class="game-panel-item__delete" onClick="deleteElement(${area.id})">
+            Delete
+        </button>
+    </div>`
+    )
+}
+
+const changeAreaColor = area => {
+
+    let r = 220, g = 220, b = 220
+
+    !area.params.x || (r -= 120)
+    !area.params.y || (b -= 120)
+    !area.params.coup || (g -= 150)
+
+    area.color = `rgba(${r},${g},${b}, 0.3)`
 }
 
 const toggleWallSettings = (el, wallId, paramIndex) => {
@@ -411,6 +495,15 @@ const renderAll = () => {
         renderGrid()
     }
 
+    if (!hideAreasCheckbox.checked) {
+        areas.forEach(e => {
+            changeAreaColor(e)
+            addAreaToPanel(e)
+            updateAreaPanel(e)
+            drawElement(e)
+        })
+    }
+
 
     if (!hideWallsCheckbox.checked) {
         walls.forEach(e => {
@@ -513,7 +606,7 @@ function dragElement(e) {
             element.x = Math.max(element.x, xMin)
             element.y = Math.max(element.y, YMin)
         })
-        renderAll()
+        // renderAll()
     }
 
 }
@@ -528,11 +621,11 @@ function dropDraggableElement() {
     }
 }
 
-canvas.addEventListener('mousedown', takeDraggableElement)
+// canvas.addEventListener('mousedown', takeDraggableElement)
 
-canvas.addEventListener('mousemove', dragElement)
+// canvas.addEventListener('mousemove', dragElement)
 
-document.addEventListener('mouseup', dropDraggableElement)
+// document.addEventListener('mouseup', dropDraggableElement)
 
 
 // function renderAll() {
