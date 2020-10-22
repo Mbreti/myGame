@@ -127,5 +127,3 @@ window.addEventListener("DOMContentLoaded", () => {
     renderAll()
     drawRect()
 })
-
-
