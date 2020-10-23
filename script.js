@@ -53,6 +53,7 @@ const loadLevels = () => {
 }
 
 const drawElement = element => {
+    ctx.save()
     let fillColor = '#2c8fdb'
 
     ctx.beginPath()
@@ -67,15 +68,50 @@ const drawElement = element => {
 
     ctx.fill()
     ctx.closePath()
+    ctx.restore()
 }
 
 const drawRect = (x = 0, y = 0, w = square.w, h = square.h) => {
+    ctx.save()
     ctx.fillStyle = "black";
     ctx.fillRect(x, y, w, h);
+    ctx.restore()
 }
 
 function edge(c, min, max) {
     return Math.max(min, Math.min(max, c));
+}
+
+// https://stackoverflow.com/questions/4977491/determining-if-two-line-segments-intersect/4977569#4977569
+// returns true iff the line from (a,b)->(c,d) intersects with (p,q)->(r,s)
+function lineLineIntersects(a, b, c, d, p, q, r, s) {
+    var det, gamma, lambda;
+    det = (c - a) * (s - q) - (r - p) * (d - b);
+    if (det === 0) {
+        return false;
+    } else {
+        lambda = ((s - q) * (r - a) + (p - r) * (s - b)) / det;
+        gamma = ((b - d) * (r - a) + (c - a) * (s - b)) / det;
+        return 0 < lambda && lambda < 1 && 0 < gamma && gamma < 1;
+    }
+}
+
+function intersectBallWall(targetPos, currPos, square, wall) {
+    const isSquareCantMove = lineLineIntersects(
+        targetPos.x, targetPos.y,
+        currPos.x, currPos.y,
+        getXPixelRatio * wall.x, getXPixelRatio * wall.y,
+        getYPixelRatio * (wall.x + wall.w), getYPixelRatio * (wall.y + wall.h)
+    );
+
+    const isTouchWall = !(
+        getXPixelRatio * wall.x >= targetPos.x + square.w ||
+        getXPixelRatio * (wall.x + wall.w) <= targetPos.x ||
+        getYPixelRatio * wall.y >= targetPos.y + square.h ||
+        getYPixelRatio * (wall.y + wall.h) <= targetPos.y
+    );
+
+    return isTouchWall || isSquareCantMove;
 }
 
 const rectPos = { x: 0, y: 0 };
@@ -90,11 +126,18 @@ const handleMouseDown = (e) => {
 }
 
 const handleMouseMove = (e) => {
-    currPos.x = getXPixelRatio * Math.round((rectPos.x + e.offsetX - start.x) / getXPixelRatio);
-    currPos.y = getYPixelRatio * Math.round((rectPos.y + e.offsetY - start.y) / getYPixelRatio);
-    currPos.x = edge(currPos.x, 0, w - 25);
-    currPos.y = edge(currPos.y, 0, h - 25);
-    renderAll()
+    const targetPos = {
+        x: getXPixelRatio * Math.round((rectPos.x + e.offsetX - start.x) / getXPixelRatio),
+        y: getYPixelRatio * Math.round((rectPos.y + e.offsetY - start.y) / getYPixelRatio)
+    }
+
+    if (walls.some((wall) => intersectBallWall(targetPos, currPos, square, wall))) {
+        return;
+    }
+
+    currPos.x = edge(targetPos.x, 0, w - 25);
+    currPos.y = edge(targetPos.y, 0, h - 25);
+    renderAll();
     drawRect(currPos.x, currPos.y);
 }
 
@@ -105,21 +148,18 @@ const handleMouseUp = (e) => {
     canvas.removeEventListener('mouseup', handleMouseUp)
 }
 
-const renderAreas = () => { areas.forEach(e => drawElement(e)) };
 const renderWalls = () => { walls.forEach(e => drawElement(e)) };
+const renderAreas = () => { areas.forEach(e => drawElement(e)) }
 
 const renderAll = () => {
     ctx.clearRect(0, 0, w, h)
 
     canvas.addEventListener('mousedown', handleMouseDown)
 
-
-    if (gridCheckbox.checked) {
-        renderGrid()
-    }
-
-    renderWalls()
+    renderGrid()
     renderAreas()
+    renderWalls()
+
 }
 
 window.addEventListener("DOMContentLoaded", () => {
